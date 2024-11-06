@@ -7,6 +7,5 @@ import { PumpsComponent } from './pumps/pumps.component';
 
 export const routes: Routes = [
     { path: "contactus", component: ContactusComponent },
-    { path: "pumps", component: PumpsComponent },
-
+    { path: "pumps", component: PumpsComponent }
 ];

@@ -7,16 +7,20 @@ import { Pagination } from '../Models/paging';
 import { FilterOptions } from '../Models/FilterOptions';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-pumps',
   standalone: true,
-  imports: [PaginationModule , FormsModule , CommonModule , RouterLink],
-  providers: [PumpService],
+  imports: [ // Add this to ensure HttpClient is available
+    PaginationModule,
+    FormsModule,
+    CommonModule,
+    RouterLink],
   templateUrl: './pumps.component.html',
-  styleUrl: './pumps.component.scss'
+  styleUrls: ['./pumps.component.scss']
 })
-export class PumpsComponent implements OnInit{
+ export class PumpsComponent implements OnInit {
   constructor(public pumpservice: PumpService) {}
   @ViewChild('search')
   searchTerms!: ElementRef;
@@ -42,6 +46,7 @@ export class PumpsComponent implements OnInit{
 
 
   ngOnInit(): void {
+    console.log("Amal")
     this.getPumps();
   }
   getPumps() {
@@ -76,14 +81,15 @@ export class PumpsComponent implements OnInit{
     this.pumpparams = new PumpParams(); // Reset to default values
     this.getPumps(); // Fetch cars with default parameters
   }
-  pageChanged(event: PageChangedEvent) {
-    this.pumpparams.PageIndex = event.page;  // Update the current page index
-    this.getPumps();  // Fetch data for the updated page
-}
-onSearch(){
-  this.pumpparams.SearchValue = this.searchTerms.nativeElement.value;
-  this.getPumps();
+    pageChanged(event: PageChangedEvent) {
+      this.pumpparams.PageIndex = event.page;  // Update the current page index
+      this.getPumps();  // Fetch data for the updated page
+  }
+  onSearch(){
+    this.pumpparams.SearchValue = this.searchTerms.nativeElement.value;
+    this.getPumps();
+  }
 }
 
 
-}
+

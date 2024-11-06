@@ -6,16 +6,17 @@ import { PumpParams } from '../Models/pump-params';
 import { Pump } from '../Models/pump';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class PumpService {
 
-  constructor(private http:HttpClient) { }
+  constructor(public http:HttpClient){ }
 
   baseUrl = "http://localhost:5187/api/";
 
-  getPumps(PumpParams:PumpParams):Observable<Pagination>{
+  getPumps(PumpParams:PumpParams):Observable<Pagination> {
     let params = new HttpParams();
     if(PumpParams.sortBy) params = params.append("sortBy",PumpParams.sortBy)
     if(PumpParams.sortDirection) params = params.append("sortDirection",PumpParams.sortDirection)
@@ -27,9 +28,9 @@ export class PumpService {
     if(PumpParams.outlet) params = params.append("outlet",PumpParams.outlet)  
     if(PumpParams.SearchValue) params = params.append("SearchValue",PumpParams.SearchValue)  
 
-      return this.http.get<Pagination>(this.baseUrl+'product',{params:params});
+    return this.http.get<Pagination>(this.baseUrl+'product',{params:params});
   }
-  getPump(id:number){
+  getPump(id:number):Observable<Pump>{
     return this.http.get<Pump>(this.baseUrl+'product/'+id);
   }
 }
