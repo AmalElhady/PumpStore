@@ -1,0 +1,30 @@
+.img{
+    width: 85px;
+}
+.custom-nav ,.navbar-nav{
+    background-color: #000d19;
+    display: flex;
+    justify-content: center; 
+}
+  
+.navbar  {
+  max-width: 100%; 
+  display: flex;
+  justify-content: center;
+}
+*{
+  padding: 0;
+
+}
+
+
+ .staff-link{
+    float: right;
+    margin-right: auto !important;
+    margin-left: 600px;
+
+}
+
+.navbar-toggler-icon{
+    color: white;
+}
