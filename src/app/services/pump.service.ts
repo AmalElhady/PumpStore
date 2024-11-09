@@ -12,7 +12,7 @@ import { Pump } from '../Models/pump';
 })
 export class PumpService {
 
-  constructor(public http:HttpClient){ }
+  constructor(private http:HttpClient){ }
 
   baseUrl = "http://localhost:5187/api/";
 
@@ -30,7 +30,7 @@ export class PumpService {
 
     return this.http.get<Pagination>(this.baseUrl+'product',{params:params});
   }
-  getPump(id:number):Observable<Pump>{
+  getPump(id:number){
     return this.http.get<Pump>(this.baseUrl+'product/'+id);
   }
 }
