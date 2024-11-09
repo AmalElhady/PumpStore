@@ -7,16 +7,14 @@ import { Pagination } from '../Models/paging';
 import { FilterOptions } from '../Models/FilterOptions';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-pumps',
   standalone: true,
-  imports: [ // Add this to ensure HttpClient is available
-    PaginationModule,
+  imports: [PaginationModule,
     FormsModule,
     CommonModule,
-    RouterLink],
+    ],
   templateUrl: './pumps.component.html',
   styleUrls: ['./pumps.component.scss']
 })
