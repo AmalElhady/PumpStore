@@ -3,11 +3,14 @@ import { Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PumpsComponent } from './pumps/pumps.component';
+import { DetailsComponent } from './details/details.component';
 
 
 export const routes: Routes = [
     { path: "contactus", component: ContactusComponent },
     { path: "pumps", component: PumpsComponent },
-    { path: "aboutus", component: AboutusComponent }
+    { path: "aboutus", component: AboutusComponent },
+    { path: "details/:id", component: DetailsComponent },
+
 
 ];

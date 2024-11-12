@@ -1,11 +1,11 @@
 export class PumpParams {
-    name="";
+    productName="";
     model="";
     construction="";
-    inlet=0;
-    outlet=0;
+    inletSize=0;
+    outletSize=0;
     PageIndex=1;
-    _pageSize = 6;
+    _pageSize = 27;
     sortBy = "";
     sortDirection  = "";
     SearchValue="";

@@ -14,25 +14,25 @@ import { RouterLink } from '@angular/router';
   imports: [PaginationModule,
     FormsModule,
     CommonModule,
+    RouterLink
     ],
   templateUrl: './pumps.component.html',
   styleUrls: ['./pumps.component.scss']
 })
  export class PumpsComponent implements OnInit {
   constructor(public pumpservice: PumpService) {}
+  
+
   @ViewChild('search')
   searchTerms!: ElementRef;
   pumps: Pagination = new Pagination();
 
-  @ViewChild('All')
-  all!:ElementRef
-
   sortedOptions = [
-    { name: "Alphabetical", value: 'nameAsc' },
-    { name: 'Inlet : Low to High', value: 'inletAsc' },
-    { name: 'Inlet : High to Low', value: 'inletDesc' },
-    { name: 'Outlet : Low to High', value: 'outletAsc' },
-    { name: 'Outlet : High to Low', value: 'outletDesc' },
+    { name: "الابجدية", value: 'nameAsc' },
+    { name: "المدخل : من الاقل للاكثر", value: 'inletAsc' },
+    { name: 'المدخل : من الاكثر للاقل', value: 'inletDesc' },
+    { name: 'المخرج : من الاقل للاكثر', value: 'outletAsc' },
+    { name: 'المخرج : من الاكثر للاقل', value: 'outletDesc' },
   ];
 
   FilterOptions:FilterOptions = new FilterOptions();
@@ -46,6 +46,8 @@ import { RouterLink } from '@angular/router';
   ngOnInit(): void {
     console.log("Amal")
     this.getPumps();
+    console.log(this.pumps)
+    console.log(this.totalcount)
   }
   getPumps() {
     
@@ -56,7 +58,7 @@ import { RouterLink } from '@angular/router';
         this.FilterOptions = response.filterOptions;
         this.totalcount = response.count;
       },
-      error: (e) => console.error('Error fetching cars:', e),
+      error: (e) => console.error('Error fetching pumps:', e),
       complete: () => console.log('Pump data fetching complete.')
     });
   }
@@ -79,14 +81,16 @@ import { RouterLink } from '@angular/router';
     this.pumpparams = new PumpParams(); // Reset to default values
     this.getPumps(); // Fetch cars with default parameters
   }
-    pageChanged(event: PageChangedEvent) {
-      this.pumpparams.PageIndex = event.page;  // Update the current page index
-      this.getPumps();  // Fetch data for the updated page
+  pageChanged(event: PageChangedEvent) {
+    this.pumpparams.PageIndex = event.page;  // Update the current page index
+    this.getPumps();  // Fetch data for the updated page
   }
   onSearch(){
     this.pumpparams.SearchValue = this.searchTerms.nativeElement.value;
     this.getPumps();
   }
+
+  
 }
 
 

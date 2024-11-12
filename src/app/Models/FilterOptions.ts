@@ -1,6 +1,6 @@
 export class FilterOptions{
     constructor(){}
-    name:string[]=[];
+    productName:string[]=[];
     construction:string[]=[];
     model:string[]=[];
     
