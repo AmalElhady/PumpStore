@@ -20,12 +20,12 @@ export class PumpService {
     let params = new HttpParams();
     if(PumpParams.sortBy) params = params.append("sortBy",PumpParams.sortBy)
     if(PumpParams.sortDirection) params = params.append("sortDirection",PumpParams.sortDirection)
-    if(PumpParams.name) params = params.append("name",PumpParams.name)  
+    if(PumpParams.productName) params = params.append("productName",PumpParams.productName)  
     if(PumpParams.model) params = params.append("model",PumpParams.model) 
     if(PumpParams.construction) params = params.append("construction",PumpParams.construction)
-    if(PumpParams.inlet) params = params.append("inlet",PumpParams.inlet) 
+    if(PumpParams.inletSize) params = params.append("inletSize",PumpParams.inletSize) 
     if(PumpParams._pageSize) params = params.append("_pageSize",PumpParams._pageSize)  
-    if(PumpParams.outlet) params = params.append("outlet",PumpParams.outlet)  
+    if(PumpParams.outletSize) params = params.append("outletSize",PumpParams.outletSize)  
     if(PumpParams.SearchValue) params = params.append("SearchValue",PumpParams.SearchValue)  
 
     return this.http.get<Pagination>(this.baseUrl+'product',{params:params});

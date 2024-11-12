@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from "./nav-bar/nav-bar.component";
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
 import { provideHttpClient } from '@angular/common/http';
 import { importProvidersFrom } from '@angular/core';
 
@@ -13,7 +14,7 @@ import { importProvidersFrom } from '@angular/core';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavBarComponent, CommonModule],
+  imports: [RouterOutlet , NavBarComponent , CommonModule , FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
   

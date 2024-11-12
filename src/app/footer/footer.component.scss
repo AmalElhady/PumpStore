@@ -1,0 +1,24 @@
+.footer {
+    background-color: #000; /* Black background */
+    padding: 20px;
+  }
+  
+  .footer h3 {
+    font-weight: bold;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .contact-item i {
+    font-size: 24px;
+    margin-left: 10px; /* Adjust spacing */
+  }
+  
+  .contact-item span {
+    font-size: 16px;
+  }
+  

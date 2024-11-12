@@ -1,9 +1,9 @@
 export interface Pump {
-    id:number;
-    name:string;
+    productID:number;
+    productName:string;
     model:string;
     construction:string;
-    inlet:number;
-    outlet:number;
-    
+    inletSize:number;
+    outletSize:number;
+    imageURL:string;
 }
