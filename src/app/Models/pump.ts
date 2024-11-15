@@ -6,4 +6,5 @@ export interface Pump {
     inletSize:number;
     outletSize:number;
     imageURL:string;
+    document:string;
 }

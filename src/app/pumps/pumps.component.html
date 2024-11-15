@@ -55,7 +55,12 @@
                 <img [src]="item.imageURL" class="img-fluid rounded-top w-100" alt="Image">
             </div>
             <div class="blog-content rounded-bottom p-4">
-              <h4 class="blog-name text-end pb-3">{{ item.productName }}</h4>       
+              <div class="downloader">
+                <h4 class="blog-name text-end pb-3">{{ item.productName }} </h4>  
+                <a [href]="item.documentation.fileUrl" download> 
+                  <i class="fa-solid fa-download pb-3"></i>
+                </a> 
+              </div>
               <div class="row gy-2 gx-0 text-center mb-4">
                 <div class="col-6 d-flex flex-column border-end border-white">
                     <small>الطراز</small>
@@ -75,7 +80,7 @@
                   <span class="text-body ms-1">{{ item.outletSize }}</span>
                 </div>
             </div>
-              <button class="btn details-button " [routerLink] = "['/details', item.id]">التفاصيل</button>
+              
             </div>
         </div>
     </div>

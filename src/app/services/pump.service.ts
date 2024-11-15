@@ -26,7 +26,9 @@ export class PumpService {
     if(PumpParams.inletSize) params = params.append("inletSize",PumpParams.inletSize) 
     if(PumpParams._pageSize) params = params.append("_pageSize",PumpParams._pageSize)  
     if(PumpParams.outletSize) params = params.append("outletSize",PumpParams.outletSize)  
-    if(PumpParams.SearchValue) params = params.append("SearchValue",PumpParams.SearchValue)  
+    if(PumpParams.SearchValue) params = params.append("SearchValue",PumpParams.SearchValue) 
+    if(PumpParams.documentId) params = params.append("documentId",PumpParams.documentId)  
+
 
     return this.http.get<Pagination>(this.baseUrl+'product',{params:params});
   }

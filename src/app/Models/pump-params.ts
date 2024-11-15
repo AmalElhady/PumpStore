@@ -9,4 +9,7 @@ export class PumpParams {
     sortBy = "";
     sortDirection  = "";
     SearchValue="";
+    documentId=0;
+    documentation="";
+
 }

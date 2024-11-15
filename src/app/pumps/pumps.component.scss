@@ -137,11 +137,20 @@
   .details-button {
     margin-top: auto; /* Ensures the button is always at the bottom */
   }
-  i {
-    background-color: #00476d !important;
-  }
   small{
     color: #a0a1a1;
+  }
+  .downloader{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .downloader i{
+    font-size: 25px;
+    color: black;
+  }
+  .downloader i:hover{
+    color: #00476d;
   }
   /*** Blog End ***/
   
