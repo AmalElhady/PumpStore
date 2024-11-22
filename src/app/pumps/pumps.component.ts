@@ -57,9 +57,10 @@ import { RouterLink } from '@angular/router';
         this.pumplist = this.pumps.data;
         this.FilterOptions = response.filterOptions;
         this.totalcount = response.count;
+
       },
       error: (e) => console.error('Error fetching pumps:', e),
-      complete: () => console.log('Pump data fetching complete.')
+      complete: () => console.log('Pump data fetching complete.', this.pumpparams.PageIndex)
     });
   }
 
@@ -77,13 +78,15 @@ import { RouterLink } from '@angular/router';
   }
   resetFilters() {
     if(this.searchTerms) 
-      this.searchTerms.nativeElement.value=""
+    this.searchTerms.nativeElement.value=""
     this.pumpparams = new PumpParams(); // Reset to default values
     this.getPumps(); // Fetch cars with default parameters
   }
-  pageChanged(event: PageChangedEvent) {
-    this.pumpparams.PageIndex = event.page;  // Update the current page index
+    pageChanged(event: PageChangedEvent) {
+    this.pumpparams.PageIndex = Math.max(1, event.page); // Update the current page index
+    console.log("Current Page Index:", this.pumpparams.PageIndex);
     this.getPumps();  // Fetch data for the updated page
+    
   }
   onSearch(){
     this.pumpparams.SearchValue = this.searchTerms.nativeElement.value;

@@ -5,7 +5,7 @@ export class PumpParams {
     inletSize=0;
     outletSize=0;
     PageIndex=1;
-    _pageSize = 27;
+    _pageSize = 6;
     sortBy = "";
     sortDirection  = "";
     SearchValue="";

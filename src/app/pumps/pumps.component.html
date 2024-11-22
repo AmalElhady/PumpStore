@@ -87,10 +87,11 @@
   </div>
 
   <pagination class="d-flex justify-content-center mt-3"
+              (pageChanged)="pageChanged($event)"
               [itemsPerPage]="pumpparams._pageSize"
               [(ngModel)]="pumpparams.PageIndex"  
               [totalItems]="totalcount"
-              (pageChanged)="pageChanged($event)">
+              >
   </pagination>
 </section>
 
