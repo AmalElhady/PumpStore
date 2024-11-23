@@ -3,5 +3,4 @@ export class FilterOptions{
     productName:string[]=[];
     construction:string[]=[];
     model:string[]=[];
-    
 }

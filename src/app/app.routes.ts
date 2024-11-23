@@ -4,6 +4,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PumpsComponent } from './pumps/pumps.component';
 import { DetailsComponent } from './details/details.component';
+import { AccessoriesComponent } from './accessories/accessories.component';
+
 
 
 export const routes: Routes = [
@@ -11,6 +13,5 @@ export const routes: Routes = [
     { path: "pumps", component: PumpsComponent },
     { path: "aboutus", component: AboutusComponent },
     { path: "details/:id", component: DetailsComponent },
-
-
+    { path: "accessories", component: AccessoriesComponent },
 ];
