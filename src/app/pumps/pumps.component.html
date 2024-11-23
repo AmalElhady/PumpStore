@@ -17,14 +17,14 @@
         </select>
       </div>
       <div class="mb-3 text-end">
-        <label for="name" class="form-label">الطراز</label>
+        <label for="model" class="form-label">الطراز</label>
         <select class="form-select text-end" id="model" [(ngModel)]="pumpparams.model" (change)="getPumps()">
           <option value="" disabled selected>اختر الطراز</option>
           <option *ngFor="let model of FilterOptions.model" [value]="model">{{ model }}</option>
         </select>
       </div>
       <div class="mb-3 text-end">
-        <label for="name" class="form-label">المادة</label>
+        <label for="construction" class="form-label">المادة</label>
         <select class="form-select text-end" id="construction" [(ngModel)]="pumpparams.construction" (change)="getPumps()">
           <option value="" disabled selected>اختر المادة</option>
           <option *ngFor="let construction of FilterOptions.construction" [value]="construction">{{ construction }}</option>

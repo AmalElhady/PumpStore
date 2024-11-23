@@ -1,0 +1,101 @@
+<div class="container my-5">
+    <div class="row">
+    <section class="col-3 my-3">
+        <h5 class="text-end">الترتيب</h5>
+        <select class="form-select text-end mb-4" (change)="onSortSelected($event)">
+          <option value="" disabled selected>اختر طريقة الترتيب</option>
+          <option [value]="option.value" *ngFor="let option of sortedOptions">
+            {{ option.name }}
+          </option>
+        </select>
+        <h5 class="text-end">التصفية عن طريق</h5>
+          <div class="mb-3 text-end">
+            <label for="name" class="form-label">الاسم</label>
+            <select class="form-select text-end" id="name" [(ngModel)]="accessoryparams.name" (change)="getAccessories()">
+              <option value="" disabled selected>اختر الاسم</option>
+              <option *ngFor="let name of AccessFilterOptions.name" [value]="name">{{ name }}</option>
+            </select>
+          </div>
+          <div class="mb-3 text-end">
+            <label for="model" class="form-label">الطراز</label>
+            <select class="form-select text-end" id="model" [(ngModel)]="accessoryparams.model" (change)="getAccessories()">
+              <option value="" disabled selected>اختر الطراز</option>
+              <option *ngFor="let model of AccessFilterOptions.model" [value]="model">{{ model }}</option>
+            </select>
+          </div>
+          <div class="mb-3 text-end">
+            <label for="construction" class="form-label">المادة</label>
+            <select class="form-select text-end" id="construction" [(ngModel)]="accessoryparams.construction" (change)="getAccessories()">
+              <option value="" disabled selected>اختر المادة</option>
+              <option *ngFor="let construction of AccessFilterOptions.construction" [value]="construction">{{ construction }}</option>
+            </select>
+          </div>
+    </section>
+    <section class="col-9">
+      <div class="d-flex justify-content-end align-items-center pb-2">
+        <div class="d-flex mt-2 pb-3">
+          <input type="text" 
+                 (keyup)="onSearch()" 
+                 placeholder="البحث" 
+                 class="form-control text-end me-2 flex-grow-1" 
+                 #search>
+          <button class="btn btn-outline-primary mx-2" 
+                  (click)="onSearch()">البحث
+          </button>
+          <button class="btn btn-outline-success" 
+                  (click)="resetFilters()">اعادة البحث 
+          </button>
+        </div>
+      </div>
+    
+      <div class="row g-4">
+        <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s" *ngFor="let item of accessorylist">
+            <div class="blog-item">
+                <div class="blog-img">
+                    <img [src]="item.imageURL" class="img-fluid rounded-top w-100" alt="Image">
+                </div>
+                <div class="blog-content rounded-bottom p-4">
+                  <div class="downloader">
+                    <h5 class="blog-name text-end pb-3">{{ item.pumpName }} </h5>  
+                    <!-- <a [href]="item.documentation.fileUrl" download> 
+                      <i class="fa-solid fa-download pb-3"></i>
+                    </a>  -->
+                  </div>
+                  <div class="row gy-2 gx-0 text-center mb-4">
+                    <div class="col-6 d-flex flex-column">
+                        <small>الطلمبة</small>
+                        <span class="text-body ms-1">{{ item.name }}</span>
+                      </div>
+                    <div class="col-6 d-flex flex-column border-end border-white">
+                        <small>الطراز</small>
+                        <span class="text-body ms-1">{{ item.model }}</span>
+                    </div>
+                    <div class="col-6 d-flex flex-column border-end border-white">
+                      <small>المادة</small>
+                      <span class="text-body ms-1">{{ item.construction }}</span>
+                    </div>
+                
+                    <div class="col-6 d-flex flex-column border-end border-white ">
+                        <small>الحجم</small>
+                        <span class="text-body ms-1">{{ item.size }}</span>
+                    </div>
+                    
+                </div>
+                  
+                </div>
+            </div>
+        </div>
+      </div>
+    
+      <pagination class="d-flex justify-content-center mt-3"
+                  (pageChanged)="pageChanged($event)"
+                  [itemsPerPage]="accessoryparams._pageSize"
+                  [(ngModel)]="accessoryparams.PageIndex"  
+                  [totalItems]="totalcount"
+                  >
+      </pagination>
+    </section>
+    
+    
+    
+    
