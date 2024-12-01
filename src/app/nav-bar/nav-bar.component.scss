@@ -11,6 +11,11 @@
   max-width: 100%; 
   display: flex;
   justify-content: center;
+  padding-right: 100px;
+}
+.img{
+  float:right;
+  
 }
 *{
   padding: 0;
@@ -19,8 +24,8 @@
 
 
  .staff-link{
-    float: right;
-    margin-right: auto !important;
-    margin-left: 600px;
+ 
+  padding-right: 300px;
+  
 
 }
