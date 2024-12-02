@@ -1,38 +1,38 @@
 <header>
-    <nav class=" navbar navbar-expand-lg custom-nav">
-      <a class="navbar-brand text-white " href="#">
-        <img class="img py-3" src="/Images/logo.jpg" alt="logo" >
+    <nav class="navbar navbar-expand-lg custom-nav ">
+      <a class="navbar-brand" href="#">
+        <img class="img py-3 px-3" src="/Images/logo.jpg" alt="logo" >
       </a>
       <button class="navbar-toggler me-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon "></span>
       </button>
       <div class="container .sticky-top">
-        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse d-flex justify-content-between align-items-center py-3" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-white fw-medium active"  href="http://localhost:4200/home" aria-current="page">الصفحة الرئيسية</a>
+              <a class="nav-link fw-medium active"  href="http://localhost:4200/home" aria-current="page">الصفحة الرئيسية</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fw-medium" href="http://localhost:4200/pumps" tabindex="-1">طلمبات</a>
+              <a class="nav-link fw-medium" href="http://localhost:4200/pumps" tabindex="-1">طلمبات</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fw-medium" href="http://localhost:4200/accessories" tabindex="-1">قطع غيار</a>
+              <a class="nav-link fw-medium" href="http://localhost:4200/accessories" tabindex="-1">قطع غيار</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fw-medium" href="http://localhost:4200/aboutus">تعرف علينا</a>
+              <a class="nav-link fw-medium" href="http://localhost:4200/aboutus">تعرف علينا</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white fw-medium" href="http://localhost:4200/contactus" tabindex="-1">تواصل معنا</a>
+              <a class="nav-link fw-medium" href="http://localhost:4200/contactus" tabindex="-1">تواصل معنا</a>
             </li>
            <ng-container *ngIf="(accountService.currentUser$ | async ) == null">
               <li class="nav-item staff-link">
-                <a class="nav-link text-white fw-medium text-white fw-medium  " href="http://localhost:4200/login" >دخول كمسؤول </a>
+                <a class="nav-link fw-medium  " href="http://localhost:4200/login" >دخول كمسؤول </a>
               </li>
             </ng-container>
             <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
            
-              <li class="nav-item staff-link"> <a class="nav-link text-white fw-medium "> {{User.displayName}}اهلا بك ، </a></li>
-            <li class="nav-item  "> <a (click)="accountService.logout()" class="nav-link text-white fw-medium ">تسجيل الخروج</a></li>
+              <li class="nav-item staff-link"> <a class="nav-link fw-medium "> {{User.displayName}}اهلا بك </a></li>
+            <li class="nav-item  "> <a (click)="accountService.logout()" class="nav-link fw-medium ">تسجيل الخروج</a></li>
              
             
             </ng-container> 

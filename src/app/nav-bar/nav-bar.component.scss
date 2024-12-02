@@ -1,31 +1,31 @@
 .img{
     width: 85px;
+    float: right;
+
 }
 .custom-nav ,.navbar-nav{
-    background-color: #000d19;
-    display: flex;
-    justify-content: center; 
+  display: flex;
+  justify-content: center; 
 }
-  
 .navbar  {
   max-width: 100%; 
   display: flex;
   justify-content: center;
-  padding-right: 100px;
+  padding-right: 150px;
 }
-.img{
-  float:right;
-  
+header {
+  border-bottom: #333;
 }
 *{
   padding: 0;
-
+  color: #333;
 }
-
-
- .staff-link{
- 
-  padding-right: 300px;
-  
-
+.nav-link:hover,
+.nav-link:active,
+.nav-link.active
+{
+  color: #007bff;
+}
+.staff-link{
+  padding-right: 500px;
 }
