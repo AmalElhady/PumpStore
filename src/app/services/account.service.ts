@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl = "http://localhost:5151/api/account/";
+  baseUrl = "http://localhost:5187/api/account/";
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 
@@ -20,7 +20,7 @@ export class AccountService {
       const token = localStorage.getItem('token');
       if (token) {
         console.log(token);
-        this.loadCurrentUser(token).subscribe(); // Subscribe to load the user
+        this.loadCurrentUser(token).subscribe(); 
       }
     }
     

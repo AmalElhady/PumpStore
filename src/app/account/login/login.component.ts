@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit{
 
   constructor(private accountService:AccountService, private router:Router, private activatedRoute:ActivatedRoute) {
     
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || 'dashboard';
+    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || 'pumps';
 
   }
  
