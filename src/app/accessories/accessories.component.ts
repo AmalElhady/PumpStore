@@ -1,5 +1,6 @@
 import { Component, ElementRef, model, OnInit, ViewChild } from '@angular/core';
 import { AccessoryService } from '../services/accessory.service';
+import { AccountService } from '../services/account.service';
 import { FormsModule } from '@angular/forms';
 import { PageChangedEvent, PaginationModule } from 'ngx-bootstrap/pagination';
 import { AccessoryParams } from '../Models/accessory-params';
@@ -18,7 +19,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './accessories.component.scss'
 })
 export class AccessoriesComponent implements OnInit {
-  constructor(public accessoryservice: AccessoryService) {}
+  constructor(public accessoryservice: AccessoryService, public accountService: AccountService) {}
   
 
   @ViewChild('search')

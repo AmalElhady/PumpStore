@@ -26,6 +26,8 @@ export class AccessoryService {
     if(AccessoryParams._pageSize) params = params.append("_pageSize",AccessoryParams._pageSize)  
     if(AccessoryParams.PageIndex) params = params.append("PageIndex",AccessoryParams.PageIndex)  
     if(AccessoryParams.SearchValue) params = params.append("SearchValue",AccessoryParams.SearchValue) 
+    if(AccessoryParams.category) params = params.append("category",AccessoryParams.category) 
+
 
 
     return this.http.get<Pagination>(this.baseUrl+'accessory',{params:params});
