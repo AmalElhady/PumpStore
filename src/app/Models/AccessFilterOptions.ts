@@ -4,4 +4,5 @@ export class AccessFilterOptions{
     pumpName:string[]=[];
     construction:string[]=[];
     model:string[]=[];
+    category:string[]=[];
 }

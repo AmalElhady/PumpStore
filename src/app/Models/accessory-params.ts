@@ -9,5 +9,5 @@ export class AccessoryParams {
     sortBy = "";
     sortDirection  = "";
     SearchValue="";
-
+    category="";
 }

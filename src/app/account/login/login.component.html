@@ -7,21 +7,21 @@
               <div class="login">
 				<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-content">
 					
-                        <label class="login-label">Log in</label>
+                        <label class="login-label">تسجيل الدخول</label>
  
-					<input formControlName="email" type="email" name="email" placeholder="Email" >
+					<input formControlName="email" type="email" name="email" placeholder="البريد الالكترونى" >
 					<div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger">
 						<small *ngIf="loginForm.get('email')?.errors?.['required']">
-						  email is required
+						  يرجي ادخال البريد الالكترونى
 						</small>
 					  </div>
-					<input formControlName="password" type="password" name="pswd" placeholder="Password">
+					<input formControlName="password" type="password" name="pswd" placeholder="كلمة المرور">
 					<div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="text-danger">
 						<small *ngIf="loginForm.get('password')?.errors?.['required']">
-						  password is required
+						  يرجي ادخال كلمة المرور
 						</small>
 					  </div>
-					<button [disabled]="loginForm.invalid" type="submit">Sign In</button>
+					<button [disabled]="loginForm.invalid" type="submit">دخول</button>
 				</form>
 			</div> 
 	 

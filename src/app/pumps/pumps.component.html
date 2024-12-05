@@ -30,6 +30,11 @@
           <option *ngFor="let construction of FilterOptions.construction" [value]="construction">{{ construction }}</option>
         </select>
       </div>
+      <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
+        <div class="mb-3">
+          <button class="btn btn-primary w-100"><i class="fa-regular fa-plus"></i> أضف جديد</button>
+        </div>
+      </ng-container> 
 </section>
 <section class="col-9">
   <div class="d-flex justify-content-end align-items-center pb-2">
@@ -79,6 +84,14 @@
                   <small>حجم المخرج</small>
                   <span class="text-body ms-1">{{ item.outletSize }}</span>
                 </div>
+                <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
+                  <div class="col-6 d-flex flex-column align-items-center">
+                    <button class="btn btn-outline-success w-75"><i class="fa-solid fa-pen"></i> تعديل</button>
+                  </div>
+                  <div class="col-6 d-flex flex-column align-items-center">
+                    <button class="btn btn-outline-danger w-75"><i class="fa-solid fa-trash"></i> حذف</button>
+                  </div>
+                </ng-container> 
             </div>
               
             </div>

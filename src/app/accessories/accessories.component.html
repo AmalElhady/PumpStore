@@ -30,6 +30,18 @@
               <option *ngFor="let construction of AccessFilterOptions.construction" [value]="construction">{{ construction }}</option>
             </select>
           </div>
+          <div class="mb-3 text-end">
+            <label for="category" class="form-label">النوع</label>
+            <select class="form-select text-end" id="category" [(ngModel)]="accessoryparams.category" (change)="getAccessories()">
+              <option value="" disabled selected>اختر النوع</option>
+              <option *ngFor="let category of AccessFilterOptions.category" [value]="category">{{ category }}</option>
+            </select>
+          </div>
+          <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
+            <div class="mb-3">
+              <button class="btn btn-primary w-100"><i class="fa-regular fa-plus"></i> أضف جديد</button>
+            </div>
+          </ng-container> 
     </section>
     <section class="col-9">
       <div class="d-flex justify-content-end align-items-center pb-2">
@@ -79,6 +91,14 @@
                         <small>الحجم</small>
                         <span class="text-body ms-1">{{ item.size }}</span>
                     </div>
+                    <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
+                      <div class="col-6 d-flex flex-column align-items-center">
+                        <button class="btn btn-outline-success w-75"><i class="fa-solid fa-pen"></i> تعديل</button>
+                      </div>
+                      <div class="col-6 d-flex flex-column align-items-center">
+                        <button class="btn btn-outline-danger w-75"><i class="fa-solid fa-trash"></i> حذف</button>
+                      </div>
+                    </ng-container> 
                     
                 </div>
                   

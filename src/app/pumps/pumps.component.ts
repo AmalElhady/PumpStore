@@ -1,5 +1,6 @@
 import { Component, ElementRef, model, OnInit, ViewChild } from '@angular/core';
 import { PumpService } from '../services/pump.service';
+import { AccountService } from '../services/account.service';
 import { PageChangedEvent, PaginationModule } from 'ngx-bootstrap/pagination';
 import { FormsModule } from '@angular/forms';
 import { PumpParams } from '../Models/pump-params';
@@ -19,7 +20,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./pumps.component.scss']
 })
  export class PumpsComponent implements OnInit {
-  constructor(public pumpservice: PumpService) {}
+  constructor(public pumpservice: PumpService, public accountService: AccountService) {}
   
 
   @ViewChild('search')

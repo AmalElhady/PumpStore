@@ -11,6 +11,7 @@ import { LoginComponent } from './account/login/login.component';
 
 
 export const routes: Routes = [
+    { path: "", component: HomeComponent },
     { path: "contactus", component: ContactusComponent },
     { path: "pumps", component: PumpsComponent },
     { path: "aboutus", component: AboutusComponent },

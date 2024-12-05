@@ -5,15 +5,18 @@
 	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	// font-family: 'Jost', sans-serif;
+	background: linear-gradient(to bottom, #34299c, #302b63, #2e2ec2);
+	//background: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fdark-blue-background&psig=AOvVaw2G5Q-kPetdc2cIIPRBAsCu&ust=1733420080221000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDggpPTjooDFQAAAAAdAAAAABAE") // no-repeat center/ cover;
+
 }
 .main{
 	width: 350px;
 	height: 500px;
-	background: red;
+	// background: red;
 	overflow: hidden;
-	background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+	// background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+	// background: url("public\Images\background.jpg") no-repeat center/ cover;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
 }
@@ -37,13 +40,13 @@
 // }
 label{
 	color: #fff;
-	font-size: 2.3em;
+	font-size: 1rem;
 	justify-content: center;
 	display: flex;
 	margin: 50px;
-	font-weight: bold;
-	cursor: pointer;
-	transition: .5s ease-in-out;
+	// font-weight: bold;
+	// cursor: pointer;
+	// transition: .5s ease-in-out;
 }
 input{
 	width: 60%;
@@ -63,12 +66,13 @@ button{
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
-	display: block;
-	color: #fff;
-	background: #573b8a;
+	display: flex;
+	color: #f3f1f7;
+	background: #354bb5;
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 30px;
+	margin-top: 50px;
+	//padding-top: 80px;
 	outline: none;
 	border: none;
 	border-radius: 5px;
@@ -76,7 +80,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background: #6d44b8;
+	background: #140432;
 }
 .login{
 	height: 460px;
@@ -101,11 +105,11 @@ button:hover{
     // font-weight: bold;
     // margin-top: 40px; /* Adjusted margin for better spacing */
     //  transition: 0.5s ease-in-out;
-	color: #573b8a;
-    font-size: 3em;
+	color: #294496;
+    font-size: 2.2em;
     font-weight: bold;
-	 transform: scale(.6);
-     margin-top: 150px;
+	transform: scale(.6);
+    margin-top: 150px;
 
 }
 
