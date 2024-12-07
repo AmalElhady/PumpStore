@@ -10,19 +10,19 @@
         <div class="collapse navbar-collapse d-flex justify-content-between align-items-center py-3" id="navbarSupportedContent">
           <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link fw-medium active"  href="http://localhost:4200/home" aria-current="page">الصفحة الرئيسية</a>
+              <a class="nav-link fw-medium active" routerLinkActive="active"  href="http://localhost:4200/home" aria-current="page">الصفحة الرئيسية</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="http://localhost:4200/pumps" tabindex="-1">طلمبات</a>
+              <a class="nav-link fw-medium" routerLinkActive="active" href="http://localhost:4200/pumps" tabindex="-1">طلمبات</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="http://localhost:4200/accessories" tabindex="-1">قطع غيار</a>
+              <a class="nav-link fw-medium" routerLinkActive="active" href="http://localhost:4200/accessories" tabindex="-1">قطع غيار</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="http://localhost:4200/aboutus">تعرف علينا</a>
+              <a class="nav-link fw-medium" routerLinkActive="active" href="http://localhost:4200/aboutus">تعرف علينا</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link fw-medium" href="http://localhost:4200/contactus" tabindex="-1">تواصل معنا</a>
+              <a class="nav-link fw-medium" routerLinkActive="active" href="http://localhost:4200/contactus" tabindex="-1">تواصل معنا</a>
             </li>
            <ng-container *ngIf="(accountService.currentUser$ | async ) == null">
               <li class="nav-item staff-link">

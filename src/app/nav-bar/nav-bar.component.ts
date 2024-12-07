@@ -14,6 +14,19 @@ import { CommonModule } from '@angular/common';
 })
 export class NavBarComponent {
   constructor(public accountService:AccountService) {
-     
+//     const navbarLinks = document.querySelectorAll('.navbar-nav a');
+// // Get the current URL path
+// const currentPath = window.location.pathname;
+
+// // Loop through the links and set the active class
+// navbarLinks.forEach(link => {
+//     if (link.getAttribute('href') === currentPath) {
+//         link.classList.add('active');
+//     } else {
+//         link.classList.remove('active');
+//     }
+// }); 
   }
+  
 }
+
