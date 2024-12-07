@@ -20,10 +20,13 @@ header {
   padding: 0;
   color: #333;
 }
-.nav-link:hover,
-.nav-link:active,
+//.nav-link:hover,
+//.nav-link:active,
 .nav-link.active
 {
+  color: #007bff;
+}
+.nav-link:active{
   color: #007bff;
 }
 .staff-link{

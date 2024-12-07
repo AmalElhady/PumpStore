@@ -16,7 +16,9 @@ export class LoginComponent implements OnInit{
 
   constructor(private accountService:AccountService, private router:Router, private activatedRoute:ActivatedRoute) {
     
-    this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || 'pumps';
+    //this.returnUrl = this.activatedRoute.snapshot.queryParams['returnUrl'] || '/';
+    this.router.navigate(['/login'], { queryParams: { returnUrl: this.router.url } });
+
 
   }
  
@@ -26,16 +28,21 @@ export class LoginComponent implements OnInit{
    password: new FormControl('',Validators.required)
   });
   ngOnInit(): void {
-
   }
 
 
-  onSubmit(){
-    this.accountService.login(this.loginForm.value).subscribe({
-      next : user => this.router.navigateByUrl(this.returnUrl),
-      error: e => console.log(e)
-    })
+  // onSubmit(){
+  //   this.accountService.login(this.loginForm.value).subscribe({
+  //     next : user => this.router.navigateByUrl(this.returnUrl),
+  //     error: e => console.log(e)
+  //   })
   
+  // }
+  onSubmit() {
+    this.accountService.login(this.loginForm.value).subscribe({
+      next: () => this.router.navigateByUrl(this.returnUrl), // Redirect to the stored returnUrl
+      error: e => console.log(e)
+    });
   }
 
 }

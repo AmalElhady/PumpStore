@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, map, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, tap } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from "../Models/user";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -53,12 +54,17 @@ export class AccountService {
     return false;
 
   }
+  isLoggedIn(): boolean {
+    return (this.isAuthenticated || localStorage.getItem('user')) !== null;
+  }
   
-  login(values:any){
+  login(values:any): Observable<any>{
     return this.http.post<User>(this.baseUrl + 'login', values).pipe(
       map(user => {
-        localStorage.setItem('token', user.token);
-        this.currentUserSource.next(user);
+        if(user && user.token){
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUserSource.next(user);
+        }
         return user;
       })
     );
