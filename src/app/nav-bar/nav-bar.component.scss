@@ -22,12 +22,13 @@ header {
 }
 //.nav-link:hover,
 //.nav-link:active,
-.nav-link.active
-{
-  color: #007bff;
+
+.nav-link.active {
+  color: blue;
+  font-weight: bold;
 }
-.nav-link:active{
-  color: #007bff;
+.nav-link {
+  color: black;
 }
 .staff-link{
   padding-right: 500px;

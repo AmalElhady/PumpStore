@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
   // }
   onSubmit() {
     this.accountService.login(this.loginForm.value).subscribe({
-      next: () => this.router.navigateByUrl(this.returnUrl), // Redirect to the stored returnUrl
+      next: user => this.router.navigateByUrl(this.returnUrl), // Redirect to the stored returnUrl
       error: e => console.log(e)
     });
   }

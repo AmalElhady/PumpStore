@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AccountService } from '../services/account.service';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './nav-bar.component.scss'
 })
 export class NavBarComponent {
-  constructor(public accountService:AccountService) {
+  constructor(public accountService:AccountService , private router: Router ) {
 //     const navbarLinks = document.querySelectorAll('.navbar-nav a');
 // // Get the current URL path
 // const currentPath = window.location.pathname;
@@ -26,6 +27,9 @@ export class NavBarComponent {
 //         link.classList.remove('active');
 //     }
 // }); 
+  }
+  isActive(path: string): boolean {
+    return this.router.url === path; // Check if the current URL matches the path
   }
   
 }
