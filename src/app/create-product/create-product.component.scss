@@ -1,0 +1,51 @@
+.product-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    border: 2px solid #9dcff1;
+    border-radius: 2%;
+    padding: 50px;
+    margin: 10 auto;
+  
+    label {
+      font-size: large;
+      margin-top: 10px;
+    }
+  
+    input[type='text'],
+    input[type='number'],
+    input[type='file'] {
+      margin: 5px 0 15px;
+      padding: 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    input:hover {
+        border-color: #9dcff1;
+    }
+  
+    button {
+      background-color: #5a36fa;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: #45a049;
+    }
+  
+    .preview-image {
+      max-width: 200px;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+  }
+  *{
+    margin: 10px auto;
+  }

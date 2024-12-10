@@ -7,6 +7,7 @@ import { DetailsComponent } from './details/details.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { LoginComponent } from './account/login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { CreateProductComponent } from './create-product/create-product.component';
 
 
 
@@ -20,7 +21,7 @@ export const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuard]},
     { path: "home", component: HomeComponent },
-     
+    { path: 'create', component: CreateProductComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
 
 ];

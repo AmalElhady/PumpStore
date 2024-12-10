@@ -15,6 +15,7 @@ import { RouterLink } from '@angular/router';
   imports: [PaginationModule,
     FormsModule,
     CommonModule,
+    RouterLink
     ],
   templateUrl: './pumps.component.html',
   styleUrls: ['./pumps.component.scss']
