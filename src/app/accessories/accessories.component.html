@@ -11,28 +11,28 @@
         <h5 class="text-end">التصفية عن طريق</h5>
           <div class="mb-3 text-end">
             <label for="name" class="form-label">نوع الطلمبة </label>
-            <select class="form-select text-end" id="name" [(ngModel)]="accessoryparams.name" (change)="getAccessories()">
+            <select class="form-select text-end" id="name" [(ngModel)]="accessoryparams.name" (change)="getFilteredAccessories()">
               <option value="" disabled selected>اختر النوع</option>
               <option *ngFor="let name of AccessFilterOptions.name" [value]="name">{{ name }}</option>
             </select>
           </div>
           <div class="mb-3 text-end">
             <label for="model" class="form-label">الطراز</label>
-            <select class="form-select text-end" id="model" [(ngModel)]="accessoryparams.model" (change)="getAccessories()">
+            <select class="form-select text-end" id="model" [(ngModel)]="accessoryparams.model" (change)="getFilteredAccessories()">
               <option value="" disabled selected>اختر الطراز</option>
               <option *ngFor="let model of AccessFilterOptions.model" [value]="model">{{ model }}</option>
             </select>
           </div>
           <div class="mb-3 text-end">
             <label for="construction" class="form-label">المادة</label>
-            <select class="form-select text-end" id="construction" [(ngModel)]="accessoryparams.construction" (change)="getAccessories()">
+            <select class="form-select text-end" id="construction" [(ngModel)]="accessoryparams.construction" (change)="getFilteredAccessories()">
               <option value="" disabled selected>اختر المادة</option>
               <option *ngFor="let construction of AccessFilterOptions.construction" [value]="construction">{{ construction }}</option>
             </select>
           </div>
           <div class="mb-3 text-end">
             <label for="category" class="form-label">النوع</label>
-            <select class="form-select text-end" id="category" [(ngModel)]="accessoryparams.category" (change)="getAccessories()">
+            <select class="form-select text-end" id="category" [(ngModel)]="accessoryparams.category" (change)="getFilteredAccessories()">
               <option value="" disabled selected>اختر النوع</option>
               <option *ngFor="let category of AccessFilterOptions.category" [value]="category">{{ category }}</option>
             </select>

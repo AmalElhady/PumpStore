@@ -28,8 +28,6 @@ export class AccessoriesComponent implements OnInit {
 
   sortedOptions = [
     { name: "الابجدية", value: 'nameAsc' },
-    { name: 'الطلمبه : من الاقل للاكثر', value: 'pumpnameAsc' },
-    { name: 'الطلمبه : من الاكثر للاقل', value: 'pumpnameDesc' },
     { name: "الحجم : من الاقل للاكثر", value: 'sizeAsc' },
     { name: 'الحجم : من الاكثر للاقل', value: 'sizeDesc' },
     
@@ -90,6 +88,21 @@ export class AccessoriesComponent implements OnInit {
   onSearch() {
     this.accessoryparams.SearchValue = this.searchTerms.nativeElement.value;
     this.getAccessories();
+    this.accessoryparams.PageIndex = Math.max(1);
+  }
+  getFilteredAccessories() {
+    
+    this.accessoryservice.getAccessories(this.accessoryparams).subscribe({
+      next: (response) => {
+        this.accessories.data = response.data;
+        this.accessorylist = this.accessories.data;
+        this.AccessFilterOptions = response.accessFilterOptions;
+        this.totalcount = response.count;
+      },
+      error: (e) => console.error('Error fetching accessories:', e),
+      complete: () => console.log('Accessory data fetching complete.', this.accessoryparams.PageIndex)
+    });
+    this.accessoryparams.PageIndex = Math.max(1);
   }
 
 }

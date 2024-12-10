@@ -11,21 +11,21 @@
     <h5 class="text-end">التصفية عن طريق</h5>
       <div class="mb-3 text-end">
         <label for="name" class="form-label">الاسم</label>
-        <select class="form-select text-end" id="name" [(ngModel)]="pumpparams.productName" (change)="getPumps()">
+        <select class="form-select text-end" id="name" [(ngModel)]="pumpparams.productName" (change)="getFilteredPumps()">
           <option value="" disabled selected>اختر الاسم</option>
           <option *ngFor="let name of FilterOptions.productName" [value]="name">{{ name }}</option>
         </select>
       </div>
       <div class="mb-3 text-end">
         <label for="model" class="form-label">الطراز</label>
-        <select class="form-select text-end" id="model" [(ngModel)]="pumpparams.model" (change)="getPumps()">
+        <select class="form-select text-end" id="model" [(ngModel)]="pumpparams.model" (change)="getFilteredPumps()">
           <option value="" disabled selected>اختر الطراز</option>
           <option *ngFor="let model of FilterOptions.model" [value]="model">{{ model }}</option>
         </select>
       </div>
       <div class="mb-3 text-end">
         <label for="construction" class="form-label">المادة</label>
-        <select class="form-select text-end" id="construction" [(ngModel)]="pumpparams.construction" (change)="getPumps()">
+        <select class="form-select text-end" id="construction" [(ngModel)]="pumpparams.construction" (change)="getFilteredPumps()">
           <option value="" disabled selected>اختر المادة</option>
           <option *ngFor="let construction of FilterOptions.construction" [value]="construction">{{ construction }}</option>
         </select>

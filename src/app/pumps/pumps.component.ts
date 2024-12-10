@@ -63,6 +63,21 @@ import { RouterLink } from '@angular/router';
       complete: () => console.log('Pump data fetching complete.', this.pumpparams.PageIndex)
     });
   }
+  getFilteredPumps(){
+    
+    this.pumpservice.getPumps(this.pumpparams).subscribe({
+      next: (response) => {
+        this.pumps.data = response.data;
+        this.pumplist = this.pumps.data;
+        this.FilterOptions = response.filterOptions;
+        this.totalcount = response.count;
+
+      },
+      error: (e) => console.error('Error fetching pumps:', e),
+      complete: () => console.log('Pump data fetching complete.', this.pumpparams.PageIndex)
+    });
+    this.pumpparams.PageIndex = Math.max(1);
+  }
 
   onSortSelected(event: any) {
     const selectedSort = event.target.value;
@@ -81,6 +96,7 @@ import { RouterLink } from '@angular/router';
     this.searchTerms.nativeElement.value=""
     this.pumpparams = new PumpParams(); // Reset to default values
     this.getPumps(); // Fetch cars with default parameters
+    
   }
     pageChanged(event: PageChangedEvent) {
     this.pumpparams.PageIndex = Math.max(1, event.page); // Update the current page index
@@ -91,6 +107,7 @@ import { RouterLink } from '@angular/router';
   onSearch(){
     this.pumpparams.SearchValue = this.searchTerms.nativeElement.value;
     this.getPumps();
+    this.pumpparams.PageIndex = Math.max(1);
   }
 
   
