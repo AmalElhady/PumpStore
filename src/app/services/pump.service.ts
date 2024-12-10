@@ -36,4 +36,29 @@ export class PumpService {
   getPump(id:number){
     return this.http.get<Pump>(this.baseUrl+'product/'+id);
   }
+  createPump(pump: Pump): Observable<Pump> {
+    return this.http.post<Pump>(this.baseUrl + 'product', pump);
+  }
+  
+
+  updatePump(id: number, pump: Pump): Observable<Pump> {
+    return this.http.put<Pump>(`${this.baseUrl}/${id}`, pump);
+  }
+
+  deletePump(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+  }
+
+  uploadImage(file: File): Observable<string> {
+    const formData = new FormData();
+    formData.append('image', file);
+    return this.http.post<string>(`${this.baseUrl}product/upload-image`, formData);
+  }
+  
+  uploadDocument(file: File): Observable<number> {
+    const formData = new FormData();
+    formData.append('document', file);
+    return this.http.post<number>(`${this.baseUrl}product/upload-document`, formData);
+  }
+  
 }
