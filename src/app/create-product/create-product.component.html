@@ -7,7 +7,6 @@
 
   <label>أضف صورة:</label>
   <input type="file" (change)="onImageUpload($event)" accept="image/*" />
-  <img *ngIf="productForm.value.imageURL" [src]="productForm.value.imageURL" class="preview-image" />
 
   <label>حجم المدخل:</label>
   <input formControlName="inletSize" type="number" required />
@@ -20,7 +19,6 @@
 
   <label>أضف ملف (PDF):</label>
   <input type="file" (change)="onDocumentUpload($event)" accept="application/pdf" />
-  <span *ngIf="productForm.value.documentId">Document Uploaded!</span>
 
   <button type="submit" [routerLink]="'/create'">أَضف طلمبة جديدة</button>
 </form>
