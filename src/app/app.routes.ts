@@ -4,6 +4,8 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PumpsComponent } from './pumps/pumps.component';
 import { DetailsComponent } from './details/details.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
+import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { LoginComponent } from './account/login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
@@ -22,6 +24,8 @@ export const routes: Routes = [
     { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuard]},
     { path: "home", component: HomeComponent },
     { path: 'create', component: CreateProductComponent },
+    { path: 'update-pump/:id', component: UpdateProductComponent },
+    { path: 'delete-pump/:id', component: DeleteProductComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
 
 ];

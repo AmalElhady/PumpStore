@@ -86,10 +86,10 @@
                 </div>
                 <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
                   <div class="col-6 d-flex flex-column align-items-center">
-                    <button class="btn btn-outline-success w-75"><i class="fa-solid fa-pen"></i> تعديل</button>
+                    <button class="btn btn-outline-success w-75" [routerLink]="['/update-pump', item.productId]"><i class="fa-solid fa-pen"></i> تعديل</button>
                   </div>
                   <div class="col-6 d-flex flex-column align-items-center">
-                    <button class="btn btn-outline-danger w-75"><i class="fa-solid fa-trash"></i> حذف</button>
+                    <button class="btn btn-outline-danger w-75" [routerLink]="['/delete-pump', item.productId]"><i class="fa-solid fa-trash"></i> حذف</button>
                   </div>
                 </ng-container> 
             </div>

@@ -4,6 +4,7 @@ import { Pagination } from '../Models/paging';
 import { Observable } from 'rxjs';
 import { PumpParams } from '../Models/pump-params';
 import { Pump } from '../Models/pump';
+import { Pumpdto } from '../Models/pumpdto';
 
 
 
@@ -36,17 +37,17 @@ export class PumpService {
   getPump(id:number){
     return this.http.get<Pump>(this.baseUrl+'product/'+id);
   }
-  createPump(pump: Pump): Observable<Pump> {
+  createPump(pump: Pump) : Observable<Pump> {
     return this.http.post<Pump>(this.baseUrl + 'product', pump);
   }
   
 
   updatePump(id: number, pump: Pump): Observable<Pump> {
-    return this.http.put<Pump>(`${this.baseUrl}/${id}`, pump);
+    return this.http.put<Pump>(`${this.baseUrl}${id}`, pump);
   }
 
   deletePump(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+    return this.http.delete<void>(`${this.baseUrl}${id}`);
   }
 
   uploadImage(file: File): Observable<string> {
@@ -55,10 +56,10 @@ export class PumpService {
     return this.http.post<string>(`${this.baseUrl}product/upload-image`, formData);
   }
   
-  uploadDocument(file: File): Observable<number> {
+  uploadDocument(file: File): Observable<string> {
     const formData = new FormData();
     formData.append('document', file);
-    return this.http.post<number>(`${this.baseUrl}product/upload-document`, formData);
+    return this.http.post<string>(`${this.baseUrl}product/upload-document`, formData);
   }
   
 }

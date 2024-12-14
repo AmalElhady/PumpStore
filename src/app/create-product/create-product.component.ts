@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Pagination } from '../Models/paging';
 import { PageChangedEvent, PaginationModule } from 'ngx-bootstrap/pagination';
+import { Pumpdto } from '../Models/pumpdto';
 
 
 
@@ -23,17 +24,16 @@ export class CreateProductComponent {
   imageFile!: File;
   documentFile!: File;
   pumps: Pagination = new Pagination();
-  pumplist:any;
 
   constructor(private fb: FormBuilder, private pumpService: PumpService, private router: Router) {
     this.productForm = this.fb.group({
-      productName: ['', Validators.required],
-      model: ['', Validators.required],
-      imageURL: ['', Validators.required],
-      inletSize: [0, Validators.required],
-      outletSize: [0, Validators.required],
-      construction: ['', Validators.required],
-      documentId: [0, Validators.required],
+      productName: [''],
+      model: [''],
+      imageURL: [''],
+      inletSize: [0],
+      outletSize: [0],
+      construction: [''],
+      documentURL: [''],
     });
   }
 
@@ -50,7 +50,7 @@ export class CreateProductComponent {
   onDocumentUpload(event: any): void {
     this.documentFile = event.target.files[0];
     this.pumpService.uploadDocument(this.documentFile).subscribe({
-      next: (id: number) => this.productForm.patchValue({ documentId: id }),
+      next: (url: string) => this.productForm.patchValue({ documentURL: url }),
       error: (err) => console.error(err),
     });
   }
@@ -58,7 +58,8 @@ export class CreateProductComponent {
   onSubmit(): void {
     console.log(this.productForm.value); // Log form data for debugging
     if (this.productForm.valid) {
-      this.pumpService.createPump(this.productForm.value as Pump).subscribe({
+      console.log("new pump: ", this.productForm.value);
+      this.pumpService.createPump(this.productForm.value).subscribe({
         next: (response) => {
           console.log('Product created successfully!', response);
         },
