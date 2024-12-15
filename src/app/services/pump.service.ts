@@ -55,7 +55,7 @@ export class PumpService {
     formData.append('image', file);
     return this.http.post<string>(`${this.baseUrl}product/upload-image`, formData);
   }
-  
+
   uploadDocument(file: File): Observable<string> {
     const formData = new FormData();
     formData.append('document', file);

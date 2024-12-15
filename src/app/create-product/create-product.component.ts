@@ -73,6 +73,7 @@ export class CreateProductComponent {
       this.pumpService.createPump(formData).subscribe({
         next: (response) => {
           console.log('Product created successfully!', response);
+          this.router.navigate(['/pumps']);
         },
         error: (err) => console.error('Error:', err),
       });
