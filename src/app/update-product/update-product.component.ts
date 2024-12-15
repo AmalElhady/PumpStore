@@ -33,12 +33,13 @@ export class UpdateProductComponent implements OnInit {
       inletSize: [0, Validators.required],
       outletSize: [0, Validators.required],
       construction: ['', Validators.required],
-      documentId: [0, Validators.required],
+      documentation: this.fb.group({ 
+        fileUrl: ['', Validators.required], 
+      })
     });
   }
 
   ngOnInit(): void {
-    // Get pump ID from route
     this.pumpId = +this.route.snapshot.paramMap.get('productId')!;
     this.loadPumpData();
   }

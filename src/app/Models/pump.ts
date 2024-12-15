@@ -1,10 +1,12 @@
 export interface Pump {
-    productID:number;
-    productName:string;
-    model:string;
-    construction:string;
-    inletSize:number;
-    outletSize:number;
-    imageURL:string;
-    document:string;
+    productName: string;
+    model: string;
+    imageURL: string;
+    inletSize: number;
+    outletSize: number;
+    construction: string;
+    documentation: {
+        fileUrl: string;
+        documentID: number;
+    };
 }
