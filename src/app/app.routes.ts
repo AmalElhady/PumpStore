@@ -29,13 +29,12 @@ export const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuard]},
     { path: "home", component: HomeComponent },
+
     { path: 'create', component: CreateProductComponent },
     { path: 'update-pump/:id', component: UpdateProductComponent },
     { path: 'delete-pump/:id', component: DeleteProductComponent },
     { path: 'delete-accessory/:id', component: DeleteAccessoryComponent },
     { path: 'update-accessory/:id', component: UpdateAccessoryComponent },
     { path: 'create-accessory', component: CreateAccessoryComponent },
-
     { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
-
 ];
