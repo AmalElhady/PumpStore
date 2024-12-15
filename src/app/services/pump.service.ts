@@ -43,11 +43,11 @@ export class PumpService {
   
 
   updatePump(id: number, pump: Pump): Observable<Pump> {
-    return this.http.put<Pump>(`${this.baseUrl}${id}`, pump);
+    return this.http.put<Pump>(`${this.baseUrl}product/${id}`, pump);
   }
 
   deletePump(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}${id}`);
+    return this.http.delete<void>(`${this.baseUrl}product/${id}`);
   }
 
   uploadImage(file: File): Observable<string> {
