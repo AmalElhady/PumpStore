@@ -7,13 +7,14 @@ import { AccessoryParams } from '../Models/accessory-params';
 import { Pagination } from '../Models/accessPaging';
 import { AccessFilterOptions } from '../Models/AccessFilterOptions';
 import { CommonModule } from '@angular/common';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-accessories',
   standalone: true,
   imports: [PaginationModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    RouterLink
     ],
   templateUrl: './accessories.component.html',
   styleUrl: './accessories.component.scss'

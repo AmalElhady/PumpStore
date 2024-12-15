@@ -35,4 +35,21 @@ export class AccessoryService {
   getAccessory(id:number){
     return this.http.get<Accessories>(this.baseUrl+'accessory/'+id);
   }
+  createAccessory(accessory: Accessories) : Observable<Accessories> {
+      return this.http.post<Accessories>(this.baseUrl + 'Accessory', accessory);
+    }
+    updateAccessory(id: number, accessory: Accessories): Observable<Accessories> {
+      return this.http.put<Accessories>(`${this.baseUrl}${id}`, accessory);
+    }
+  
+    deleteAccessory(id: number): Observable<void> {
+      return this.http.delete<void>(`${this.baseUrl}${id}`);
+    }
+  
+    uploadImage(file: File): Observable<string> {
+      const formData = new FormData();
+      formData.append('image', file);
+      return this.http.post<string>(`${this.baseUrl}accessory/upload-image`, formData);
+    }
+    
 }
