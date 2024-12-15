@@ -23,9 +23,9 @@ export const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuard]},
     { path: "home", component: HomeComponent },
-    { path: 'create', component: CreateProductComponent },
-    { path: 'update-pump/:id', component: UpdateProductComponent },
-    { path: 'delete-pump/:id', component: DeleteProductComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
+    { path: 'create', component: CreateProductComponent ,canActivate: [AuthGuard]},
+    { path: 'update-pump/:id', component: UpdateProductComponent},
+    { path: 'delete-pump/:id', component: DeleteProductComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
 
 ];
