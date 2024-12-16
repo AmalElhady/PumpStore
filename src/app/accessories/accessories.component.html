@@ -30,13 +30,7 @@
               <option *ngFor="let construction of AccessFilterOptions.construction" [value]="construction">{{ construction }}</option>
             </select>
           </div>
-          <div class="mb-3 text-end">
-            <label for="category" class="form-label">النوع</label>
-            <select class="form-select text-end" id="category" [(ngModel)]="accessoryparams.category" (change)="getFilteredAccessories()">
-              <option value="" disabled selected>اختر النوع</option>
-              <option *ngFor="let category of AccessFilterOptions.category" [value]="category">{{ category }}</option>
-            </select>
-          </div>
+         
           <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
             <div class="mb-3">
               <button class="btn btn-primary w-100"[routerLink]="'/create-accessory'"><i class="fa-regular fa-plus"></i> أضف جديد</button>
@@ -86,17 +80,17 @@
                       <small>المادة</small>
                       <span class="text-body ms-1">{{ item.construction }}</span>
                     </div>
-                
-                    <div class="col-6 d-flex flex-column border-end border-white ">
-                        <small>الحجم</small>
-                        <span class="text-body ms-1">{{ item.size }}</span>
+                    <div class="col-6 d-flex flex-column border-end border-white">
+                      <small>النوع</small>
+                      <span class="text-body ms-1">{{ item.category.name }}</span>
                     </div>
+                  
                     <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
                       <div class="col-6 d-flex flex-column align-items-center">
                         <button class="btn btn-outline-success w-75" [routerLink]="['/update-accessory', item.id]"><i class="fa-solid fa-pen"></i> تعديل</button>
                       </div>
-                      <div class="col-6 d-flex flex-column align-items-center">
-                        <button class="btn btn-outline-danger w-75" [routerLink]="['/delete-accessory', item.id]"><i class="fa-solid fa-trash"></i> حذف</button>
+                      <div class="col-6 d-flex flex-column align-items-center" (change)="getFilteredAccessories()">
+                        <button class="btn btn-outline-danger w-75" *ngIf="item.id" (click)="deleteAccessory(item.id)"><i class="fa-solid fa-trash"></i> حذف</button>
                       </div>
                     </ng-container> 
                     

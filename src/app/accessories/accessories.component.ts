@@ -100,5 +100,13 @@ export class AccessoriesComponent implements OnInit {
     });
     this.accessoryparams.PageIndex = Math.max(1);
   }
-
+  deleteAccessory(id: number) {
+    if (confirm('هل انت متأكد من انك تريد حذف هذا المنتج؟')) {
+      this.accessoryservice.deleteAccessory(id).subscribe({
+        next: () => alert('تم الحذف'),
+        error: (err) => console.error(err),
+      });
+    }
+    this.ngOnInit();
+  }
 }
