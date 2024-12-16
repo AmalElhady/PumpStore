@@ -1,16 +1,15 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Pagination } from '../Models/paging';
 import { Observable } from 'rxjs';
 import { PumpParams } from '../Models/pump-params';
 import { Pump } from '../Models/pump';
-import { Pumpdto } from '../Models/pumpdto';
-
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PumpService {
 
   constructor(private http:HttpClient){ }
@@ -40,7 +39,6 @@ export class PumpService {
   createPump(pump: Pump) : Observable<Pump> {
     return this.http.post<Pump>(this.baseUrl + 'product', pump);
   }
-  
 
   updatePump(id: number, pump: Pump): Observable<Pump> {
     return this.http.put<Pump>(`${this.baseUrl}product/${id}`, pump);

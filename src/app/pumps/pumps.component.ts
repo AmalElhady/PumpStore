@@ -45,9 +45,7 @@ import { RouterLink } from '@angular/router';
 
 
   ngOnInit(): void {
-    console.log("Amal")
     this.getPumps();
-    console.log(this.totalcount)
   }
   getPumps() {
     
@@ -95,14 +93,14 @@ import { RouterLink } from '@angular/router';
   resetFilters() {
     if(this.searchTerms) 
     this.searchTerms.nativeElement.value=""
-    this.pumpparams = new PumpParams(); // Reset to default values
-    this.getPumps(); // Fetch cars with default parameters
+    this.pumpparams = new PumpParams(); 
+    this.getPumps(); 
     
   }
     pageChanged(event: PageChangedEvent) {
-    this.pumpparams.PageIndex = Math.max(1, event.page); // Update the current page index
+    this.pumpparams.PageIndex = Math.max(1, event.page); 
     console.log("Current Page Index:", this.pumpparams.PageIndex);
-    this.getPumps();  // Fetch data for the updated page
+    this.getPumps();  
     
   }
   onSearch(){
