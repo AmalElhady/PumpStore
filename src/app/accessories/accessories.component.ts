@@ -21,7 +21,6 @@ import { RouterLink } from '@angular/router';
 })
 export class AccessoriesComponent implements OnInit {
   constructor(public accessoryservice: AccessoryService, public accountService: AccountService) {}
-  
 
   @ViewChild('search')
   searchTerms!: ElementRef;
@@ -43,11 +42,7 @@ export class AccessoriesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("Amal")
     this.getAccessories();
-    console.log(this.accessorylist)
-    console.log(this.totalcount)
-    console.log(this.AccessFilterOptions);
   }
   getAccessories() {
     
