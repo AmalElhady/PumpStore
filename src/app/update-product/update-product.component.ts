@@ -90,6 +90,7 @@ export class UpdateProductComponent implements OnInit {
       this.pumpService.updatePump(this.pumpId, formData).subscribe({
         next: () => {
           console.log('Pump updated successfully!');
+          this.router.navigate(['/pumps']);
         },
         error: (err) => console.error('Error updating pump:', err),
       });
