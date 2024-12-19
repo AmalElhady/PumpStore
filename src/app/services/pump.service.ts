@@ -14,7 +14,7 @@ export class PumpService {
 
   constructor(private http:HttpClient){ }
 
-  baseUrl = "http://localhost:5187/api/";
+  baseUrl = "https://enginneringco.com/api/";
 
   getPumps(PumpParams:PumpParams):Observable<Pagination> {
     let params = new HttpParams();
