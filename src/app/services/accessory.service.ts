@@ -12,7 +12,7 @@ export class AccessoryService {
 
   constructor(private http:HttpClient){ }
 
-  baseUrl = "http://localhost:5187/api/";
+  baseUrl = "https://enginneringco.com/api/"
 
   getAccessories(AccessoryParams:AccessoryParams):Observable<Pagination> {
     let params = new HttpParams();
