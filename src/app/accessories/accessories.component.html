@@ -17,9 +17,9 @@
             </select>
           </div>
           <div class="mb-3 text-end">
-            <label for="model" class="form-label">الطراز</label>
+            <label for="model" class="form-label">الكود</label>
             <select class="form-select text-end" id="model" [(ngModel)]="accessoryparams.model" (change)="getFilteredAccessories()">
-              <option value="" disabled selected>اختر الطراز</option>
+              <option value="" disabled selected>اختر الكود</option>
               <option *ngFor="let model of AccessFilterOptions.model" [value]="model">{{ model }}</option>
             </select>
           </div>
@@ -73,7 +73,7 @@
                         <span class="text-body ms-1">{{ item.name }}</span>
                       </div>
                     <div class="col-6 d-flex flex-column border-end border-white">
-                        <small>الطراز</small>
+                        <small>الكود</small>
                         <span class="text-body ms-1">{{ item.model }}</span>
                     </div>
                     <div class="col-6 d-flex flex-column border-end border-white">
