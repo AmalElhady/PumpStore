@@ -8,7 +8,7 @@ import { UpdateProductComponent } from './update-product/update-product.componen
 import { DeleteProductComponent } from './delete-product/delete-product.component';
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { LoginComponent } from './account/login/login.component';
-import { AuthGuard } from './services/auth-guard.service';
+import { AuthGuardService } from './services/auth-guard.service';
 import { CreateAccessoryComponent } from './create-accessory/create-accessory.component';
 import { UpdateAccessoryComponent } from './update-accessory/update-accessory.component';
 import { DeleteAccessoryComponent } from './delete-accessory/delete-accessory.component';
@@ -23,11 +23,11 @@ import { CreateProductComponent } from './create-product/create-product.componen
 export const routes: Routes = [
     { path: "", component: HomeComponent },
     { path: "contactus", component: ContactusComponent },
-    { path: "pumps", component: PumpsComponent ,canActivate: [AuthGuard]},
+    { path: "pumps", component: PumpsComponent ,canActivate: [AuthGuardService]},
     { path: "aboutus", component: AboutusComponent },
     { path: "details/:id", component: DetailsComponent },
     { path: "login", component: LoginComponent },
-    { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuard]},
+    { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuardService]},
     { path: "home", component: HomeComponent },
 
     { path: 'create', component: CreateProductComponent },
