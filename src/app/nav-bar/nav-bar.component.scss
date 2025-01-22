@@ -1,8 +1,5 @@
-.img{
-    width: 85px;
-}
 
-.custom-nav ,.navbar-nav{
+/*.custom-nav ,.navbar-nav{
   display: flex;
   justify-content: center; 
 }
@@ -30,5 +27,94 @@ header {
   color: black;
 }
 .staff-link{
-  padding-right: 500px;
+  padding-right: 400px;
+  
 }
+.logo-text {
+  font-size: 1.3rem; 
+  font-weight: bold; 
+  margin-left: 10px; 
+  color: #000; 
+  
+  line-height: 1; 
+  padding-left: 100px;
+}
+
+.img {
+  height: 100px;
+  width: auto;
+  vertical-align: middle; 
+}*/
+/* Ensure the navbar is flex and centered */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Space out items */
+  align-items: center; /* Vertically center items */
+  padding: 10px 20px; /* Adjust padding as needed */
+  max-width: 100%;
+}
+
+/* Logo and logo text container */
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Vertically center logo and text */
+}
+
+/* Logo text styling */
+.logo-text {
+  font-size: 1.3rem;
+  margin-left: 10px;
+  color: #000;
+  line-height: 1;
+}
+
+/* Logo image styling */
+.img {
+  height: 100px;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* Navbar links container */
+.navbar-nav {
+  display: flex;
+  align-items: center; /* Vertically center links */
+  margin-left: auto; /* Push links to the right */
+}
+
+/* Navbar links styling */
+.nav-link {
+  color: black;
+  margin-left: 15px; /* Space between links */
+}
+
+/* Active link styling */
+.nav-link.active {
+  color: blue;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the left */
+  }
+
+  .navbar-nav {
+    margin-left: 0; /* Reset margin for mobile */
+    flex-direction: column; /* Stack links vertically */
+    width: 100%; /* Full width */
+  }
+
+  .nav-link {
+    margin-left: 0; /* Reset margin for mobile */
+    padding: 10px 0; /* Add padding for better touch targets */
+  }
+
+  .logo-text {
+    padding-left: 0; /* Reset padding for mobile */
+  }
+}
+
+
