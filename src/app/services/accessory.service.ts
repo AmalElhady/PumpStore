@@ -12,7 +12,7 @@ export class AccessoryService {
 
   constructor(private http:HttpClient){ }
 
-  baseUrl = "http://localhost:5187/api/";
+  baseUrl = "https://enginneringco.com/api/"
 
   getAccessories(AccessoryParams:AccessoryParams):Observable<Pagination> {
     let params = new HttpParams();
@@ -35,4 +35,24 @@ export class AccessoryService {
   getAccessory(id:number){
     return this.http.get<Accessories>(this.baseUrl+'accessory/'+id);
   }
+  createAccessory(accessory: Accessories) : Observable<Accessories> {
+      return this.http.post<Accessories>(this.baseUrl + 'Accessory', accessory);
+    }
+  updateAccessory(id: number, accessory: Accessories): Observable<Accessories> {
+      return this.http.put<Accessories>(`${this.baseUrl}Accessory/${id}`, accessory);
+    }
+  
+  
+    deleteAccessory(id: number): Observable<void> {
+      
+    return this.http.delete<void>(`${this.baseUrl}Accessory/${id}`);
+
+    }
+  
+    uploadImage(file: File): Observable<string> {
+      const formData = new FormData();
+      formData.append('image', file);
+      return this.http.post<string>(`${this.baseUrl}accessory/upload-image`, formData);
+    }
+    
 }

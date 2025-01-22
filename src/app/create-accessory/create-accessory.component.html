@@ -1,0 +1,27 @@
+<title>EngineeringCo</title><link rel="icon" type="image/png" href="/public/Pictures/logo.jpg">
+
+<form [formGroup]="accessoryForm" (ngSubmit)="onSubmit()" class="accessory-form">
+    <label>الاسم :</label>
+    <input formControlName="pumpName" type="text" required />
+    <label>اسم الطلمبه</label>
+    <input formControlName="name" type="text" required />
+  
+    <label>الموديل:</label>
+    <input formControlName="model" type="text" required />
+  
+    <label>أضف صورة:</label>
+    <input type="file" (change)="onImageUpload($event)" accept="image/*" />
+  
+    <label>الحجم:</label>
+    <input formControlName="size" type="number" required />
+    <div formGroupName="category">
+      <label>النوع:</label>
+      <input formControlName="Name" type="text" required />
+    </div>
+    
+    <label>المادة:</label>
+    <input formControlName="construction" type="text" required />
+  
+    <button type="submit" [routerLink]="'/create-accessory'">أَضف قطعه جديدة</button>
+  </form>
+  

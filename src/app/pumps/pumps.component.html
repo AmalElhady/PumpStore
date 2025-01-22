@@ -1,6 +1,8 @@
+<title>EngineeringCo</title><link rel="icon" type="image/png" href="/public/Pictures/logo.jpg">
+
 <div class="container my-5">
 <div class="row">
-<section class="col-3 my-3">
+<section class="col-lg-3 col-md-4 col-sm-12 my-3">
     <h5 class="text-end">الترتيب</h5>
     <select class="form-select text-end mb-4" (change)="onSortSelected($event)">
       <option value="" disabled selected>اختر طريقة الترتيب</option>
@@ -36,9 +38,9 @@
         </div>
       </ng-container> 
 </section>
-<section class="col-9">
+<section class="col-lg-9 col-md-8 col-sm-12">
   <div class="d-flex justify-content-end align-items-center pb-2">
-    <div class="d-flex mt-2 pb-3">
+    <div class="d-flex mt-2 pb-3 col-lg-9 col-md-8 col-sm-12">
       <input type="text" 
              (keyup)="onSearch()" 
              placeholder="البحث" 
@@ -82,14 +84,14 @@
                 </div>
                 <div class="col-6 d-flex flex-column">
                   <small>حجم المخرج</small>
-                  <span class="text-body ms-1">{{ item.outletSize }}</span>
+                  <span class="text-body ms-1">{{ item.outletSize }}-{{ item.productID }}</span>
                 </div>
                 <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
-                  <div class="col-6 d-flex flex-column align-items-center">
-                    <button class="btn btn-outline-success w-75" [routerLink]="['/update-pump', item.productId]"><i class="fa-solid fa-pen"></i> تعديل</button>
+                  <div class="col-6 d-flex flex-column align-items-center" (change)="getFilteredPumps()">
+                    <button class="btn btn-outline-success w-75"  *ngIf="item.productID" [routerLink]="['/update-pump', item.productID]"><i class="fa-solid fa-pen"></i> تعديل</button>
                   </div>
-                  <div class="col-6 d-flex flex-column align-items-center">
-                    <button class="btn btn-outline-danger w-75" [routerLink]="['/delete-pump', item.productId]"><i class="fa-solid fa-trash"></i> حذف</button>
+                  <div class="col-6 d-flex flex-column align-items-center" (change)="getFilteredPumps()">
+                    <button class="btn btn-outline-danger w-75" *ngIf="item.productID" (click)="deleteProduct(item.productID)"><i class="fa-solid fa-trash"></i> حذف</button>
                   </div>
                 </ng-container> 
             </div>
@@ -99,14 +101,11 @@
     </div>
   </div>
 
-  <pagination class="d-flex justify-content-center mt-3"
-              (pageChanged)="pageChanged($event)"
-              [itemsPerPage]="pumpparams._pageSize"
-              [(ngModel)]="pumpparams.PageIndex"  
-              [totalItems]="totalcount"
-              >
-  </pagination>
+  <pagination class="d-flex justify-content-center justify-content-md-end mt-3 px-2"
+            (pageChanged)="pageChanged($event)"
+            [itemsPerPage]="pumpparams._pageSize"
+            [(ngModel)]="pumpparams.PageIndex"  
+            [totalItems]="totalcount">
+</pagination>
 </section>
-
-
 

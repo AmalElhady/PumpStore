@@ -1,21 +1,20 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Pagination } from '../Models/paging';
 import { Observable } from 'rxjs';
 import { PumpParams } from '../Models/pump-params';
 import { Pump } from '../Models/pump';
-import { Pumpdto } from '../Models/pumpdto';
-
 
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class PumpService {
 
   constructor(private http:HttpClient){ }
 
-  baseUrl = "http://localhost:5187/api/";
+  baseUrl = "https://enginneringco.com/api/";
 
   getPumps(PumpParams:PumpParams):Observable<Pagination> {
     let params = new HttpParams();
@@ -40,14 +39,13 @@ export class PumpService {
   createPump(pump: Pump) : Observable<Pump> {
     return this.http.post<Pump>(this.baseUrl + 'product', pump);
   }
-  
 
   updatePump(id: number, pump: Pump): Observable<Pump> {
-    return this.http.put<Pump>(`${this.baseUrl}${id}`, pump);
+    return this.http.put<Pump>(`${this.baseUrl}product/${id}`, pump);
   }
 
   deletePump(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}${id}`);
+    return this.http.delete<void>(`${this.baseUrl}product/${id}`);
   }
 
   uploadImage(file: File): Observable<string> {
@@ -55,7 +53,7 @@ export class PumpService {
     formData.append('image', file);
     return this.http.post<string>(`${this.baseUrl}product/upload-image`, formData);
   }
-  
+
   uploadDocument(file: File): Observable<string> {
     const formData = new FormData();
     formData.append('document', file);

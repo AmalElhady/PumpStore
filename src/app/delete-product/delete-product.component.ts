@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PumpService } from '../services/pump.service'; // Adjust the path as necessary
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class DeleteProductComponent {
   deleteSuccess: boolean = false;
   deleteError: string | null = null;
 
-  constructor(private pumpService: PumpService) {}
+  constructor(private pumpService: PumpService,private router :Router) {}
 
   onDelete(productId: number): void {
     this.deleteSuccess = false;
@@ -25,6 +27,7 @@ export class DeleteProductComponent {
       this.pumpService.deletePump(productId).subscribe({
         next: () => {
           this.deleteSuccess = true;
+          this.router.navigate(['/pumps']);
         },
         error: (err) => {
           this.deleteError = `Error deleting product: ${err.message}`;

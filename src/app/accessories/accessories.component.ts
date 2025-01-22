@@ -7,20 +7,20 @@ import { AccessoryParams } from '../Models/accessory-params';
 import { Pagination } from '../Models/accessPaging';
 import { AccessFilterOptions } from '../Models/AccessFilterOptions';
 import { CommonModule } from '@angular/common';
-
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-accessories',
   standalone: true,
   imports: [PaginationModule,
     FormsModule,
-    CommonModule
+    CommonModule,
+    RouterLink
     ],
   templateUrl: './accessories.component.html',
   styleUrl: './accessories.component.scss'
 })
 export class AccessoriesComponent implements OnInit {
   constructor(public accessoryservice: AccessoryService, public accountService: AccountService) {}
-  
 
   @ViewChild('search')
   searchTerms!: ElementRef;
@@ -42,11 +42,7 @@ export class AccessoriesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log("Amal")
     this.getAccessories();
-    console.log(this.accessorylist)
-    console.log(this.totalcount)
-    console.log(this.AccessFilterOptions);
   }
   getAccessories() {
     
@@ -104,5 +100,13 @@ export class AccessoriesComponent implements OnInit {
     });
     this.accessoryparams.PageIndex = Math.max(1);
   }
-
+  deleteAccessory(id: number) {
+    if (confirm('هل انت متأكد من انك تريد حذف هذا المنتج؟')) {
+      this.accessoryservice.deleteAccessory(id).subscribe({
+        next: () => alert('تم الحذف'),
+        error: (err) => console.error(err),
+      });
+    }
+    this.ngOnInit();
+  }
 }

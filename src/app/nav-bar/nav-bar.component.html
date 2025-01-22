@@ -1,71 +1,70 @@
+<title>EngineeringCo</title><link rel="icon" type="image/png" href="/public/Pictures/logo.jpg">
+
 <header>
-    <nav class="navbar navbar-expand-lg custom-nav ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
       <a class="navbar-brand" href="#">
-        <img class="img py-3 px-3" src="/Images/logo.jpg" alt="logo" >
+        <img class="img py-3 px-3" src="/Pictures/logo.jpg" alt="logo">
       </a>
-      <button class="navbar-toggler me-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed" aria-controls="navbarSupportedContent" aria-expanded="!isMenuCollapsed" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="container .sticky-top">
-        <div class="collapse navbar-collapse d-flex justify-content-between align-items-center py-3" id="navbarSupportedContent">
-          <ul class="navbar-nav mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link fw-medium" 
+      <div class="collapse navbar-collapse" [class.show]="!isMenuCollapsed" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link fw-medium" 
               [class.active]="isActive('/home')||isActive('/')"
               [routerLink]="'/home'"
               routerLinkActive="active"
               aria-current="page">الصفحة الرئيسية</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium"
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium"
               [class.active]="isActive('/pumps')"
               [routerLink]="'/pumps'"
               routerLinkActive="active"
               aria-current="page">طلمبات</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium"
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium"
               [class.active]="isActive('/accessories')"
               [routerLink]="'/accessories'"
               routerLinkActive="active"
               aria-current="page">قطع غيار</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium"
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium"
               [class.active]="isActive('/aboutus')"
               [routerLink]="'/aboutus'"
               routerLinkActive="active"
               aria-current="page">تعرف علينا</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-medium"
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium"
               [class.active]="isActive('/contactus')"
               [routerLink]="'/contactus'"
               routerLinkActive="active"
               aria-current="page">تواصل معنا</a>
-            </li>
-           <ng-container *ngIf="(accountService.currentUser$ | async ) == null">
-              <li class="nav-item staff-link">
-                <a a class="nav-link fw-medium"
+          </li>
+          <ng-container *ngIf="(accountService.currentUser$ | async ) == null">
+            <li class="nav-item">
+              <a class="nav-link fw-medium"
                 [class.active]="isActive('/login')||isActive('/login?returnUrl=%2Flogin')"
                 [routerLink]="'/login'"
                 routerLinkActive="active"
-                aria-current="page" >دخول كمسؤول </a>
-              </li>
-            </ng-container>
-            <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
-           
-              <li class="nav-item staff-link"> <a class="nav-link fw-medium "> {{User.displayName}}  ، اهلا بك </a></li>
-              <li class="nav-item  "> <a (click)="accountService.logout()" class="nav-link fw-medium ">تسجيل الخروج</a></li>
-             
-            
-            </ng-container> 
-         
-          </ul>
-        </div>
-        
+                aria-current="page">دخول كمسؤول</a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="(accountService.currentUser$ | async ) as User">
+            <li class="nav-item">
+              <a class="nav-link fw-medium"> {{User.displayName}}، اهلا بك</a>
+            </li>
+            <li class="nav-item">
+              <a (click)="accountService.logout()" class="nav-link fw-medium">تسجيل الخروج</a>
+            </li>
+          </ng-container>
+        </ul>
       </div>
-      
-    </nav>
-  </header>
-  
+    </div>
+  </nav>
+</header>

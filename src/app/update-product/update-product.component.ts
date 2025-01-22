@@ -40,14 +40,21 @@ export class UpdateProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pumpId = +this.route.snapshot.paramMap.get('productId')!;
-    this.loadPumpData();
+    console.log(this.route.snapshot.url);
+    const productId = this.route.snapshot.paramMap.get('id');
+    console.log('Product ID from URL:', productId); 
+    if (productId && !isNaN(+productId)) {
+      this.pumpId = +productId;
+      this.loadPumpData();
+    } else {
+      console.error('Invalid or missing productId:', productId);
+    }
   }
 
   loadPumpData(): void {
     this.pumpService.getPump(this.pumpId).subscribe({
       next: (pump: Pump) => {
-        this.updateForm.patchValue(pump); // Populate the form with the retrieved data
+        this.updateForm.patchValue(pump);
       },
       error: (err) => console.error('Error fetching pump data:', err),
     });
@@ -59,23 +66,31 @@ export class UpdateProductComponent implements OnInit {
       next: (url: string) => {
         this.updateForm.patchValue({ imageURL: url });
       },
-      error: (err) => console.error('Error uploading image:', err),
+      error: (err) => console.error(err),
     });
   }
-
+  
   onDocumentUpload(event: any): void {
     this.documentFile = event.target.files[0];
     this.pumpService.uploadDocument(this.documentFile).subscribe({
-      next: (id) => this.updateForm.patchValue({ documentId: id }),
-      error: (err) => console.error('Error uploading document:', err),
+      next: (url: string) => {
+        this.updateForm.get('documentation')?.patchValue({ fileUrl: url });
+      },
+      error: (err) => console.error(err),
     });
   }
 
   onSubmit(): void {
+    console.log(this.updateForm.value);
     if (this.updateForm.valid) {
-      this.pumpService.updatePump(this.pumpId, this.updateForm.value).subscribe({
+      const formData = { ...this.updateForm.value };
+      formData.imageURL = this.updateForm.value.imageURL.url;
+      formData.documentation.fileUrl = this.updateForm.value.documentation.fileUrl.url;
+
+      this.pumpService.updatePump(this.pumpId, formData).subscribe({
         next: () => {
           console.log('Pump updated successfully!');
+          this.router.navigate(['/pumps']);
         },
         error: (err) => console.error('Error updating pump:', err),
       });

@@ -9,7 +9,13 @@ import { DeleteProductComponent } from './delete-product/delete-product.componen
 import { AccessoriesComponent } from './accessories/accessories.component';
 import { LoginComponent } from './account/login/login.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { CreateAccessoryComponent } from './create-accessory/create-accessory.component';
+import { UpdateAccessoryComponent } from './update-accessory/update-accessory.component';
+import { DeleteAccessoryComponent } from './delete-accessory/delete-accessory.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+
+
+
 
 
 
@@ -23,9 +29,12 @@ export const routes: Routes = [
     { path: "login", component: LoginComponent },
     { path: "accessories", component: AccessoriesComponent ,canActivate: [AuthGuard]},
     { path: "home", component: HomeComponent },
+
     { path: 'create', component: CreateProductComponent },
     { path: 'update-pump/:id', component: UpdateProductComponent },
     { path: 'delete-pump/:id', component: DeleteProductComponent },
+    { path: 'delete-accessory/:id', component: DeleteAccessoryComponent },
+    { path: 'update-accessory/:id', component: UpdateAccessoryComponent },
+    { path: 'create-accessory', component: CreateAccessoryComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' }, // Default route
-
 ];

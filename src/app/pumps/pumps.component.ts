@@ -1,4 +1,4 @@
-import { Component, ElementRef, model, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, model, OnInit, ViewChild } from '@angular/core';
 import { PumpService } from '../services/pump.service';
 import { AccountService } from '../services/account.service';
 import { PageChangedEvent, PaginationModule } from 'ngx-bootstrap/pagination';
@@ -23,7 +23,7 @@ import { RouterLink } from '@angular/router';
  export class PumpsComponent implements OnInit {
   constructor(public pumpservice: PumpService, public accountService: AccountService) {}
   
-
+  @Input() productId!: number;
   @ViewChild('search')
   searchTerms!: ElementRef;
   pumps: Pagination = new Pagination();
@@ -45,10 +45,7 @@ import { RouterLink } from '@angular/router';
 
 
   ngOnInit(): void {
-    console.log("Amal")
     this.getPumps();
-    console.log(this.pumps)
-    console.log(this.totalcount)
   }
   getPumps() {
     
@@ -63,6 +60,7 @@ import { RouterLink } from '@angular/router';
       error: (e) => console.error('Error fetching pumps:', e),
       complete: () => console.log('Pump data fetching complete.', this.pumpparams.PageIndex)
     });
+    console.log(this.pumplist)
   }
   getFilteredPumps(){
     
@@ -95,14 +93,14 @@ import { RouterLink } from '@angular/router';
   resetFilters() {
     if(this.searchTerms) 
     this.searchTerms.nativeElement.value=""
-    this.pumpparams = new PumpParams(); // Reset to default values
-    this.getPumps(); // Fetch cars with default parameters
+    this.pumpparams = new PumpParams(); 
+    this.getPumps(); 
     
   }
     pageChanged(event: PageChangedEvent) {
-    this.pumpparams.PageIndex = Math.max(1, event.page); // Update the current page index
+    this.pumpparams.PageIndex = Math.max(1, event.page); 
     console.log("Current Page Index:", this.pumpparams.PageIndex);
-    this.getPumps();  // Fetch data for the updated page
+    this.getPumps();  
     
   }
   onSearch(){
@@ -110,7 +108,15 @@ import { RouterLink } from '@angular/router';
     this.getPumps();
     this.pumpparams.PageIndex = Math.max(1);
   }
-
+  deleteProduct(id: number) {
+    if (confirm('هل انت متأكد من انك تريد حذف هذا المنتج؟')) {
+      this.pumpservice.deletePump(id).subscribe({
+        next: () => alert('تم الحذف'),
+        error: (err) => console.error(err),
+      });
+    }
+    this.ngOnInit();
+  }
   
 }
 
